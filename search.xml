@@ -8,7 +8,7 @@
       <link href="/2024/10/31/%E5%9C%B0%E7%82%B9%E6%9F%A5%E8%AF%A2/"/>
       <url>/2024/10/31/%E5%9C%B0%E7%82%B9%E6%9F%A5%E8%AF%A2/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <title>Chart Example</title>    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head><body>    <canvas id="myChart"></canvas>    <script>      fetch('./data/data.json')  // 确认路径正确        .then(response => response.json())        .then(data => {          const ctx = document.getElementById('myChart').getContext('2d');          new Chart(ctx, {            type: 'bar',            data: {              labels: data.map(item => item.楼号),              datasets: [{                label: '房间号',                data: data.map(item => item.房间号),                backgroundColor: 'rgba(75, 192, 192, 0.2)',                borderColor: 'rgba(75, 192, 192, 1)',                borderWidth: 1              }]            }          });        })        .catch(error => console.error('Error fetching data:', error));  // 捕获和输出错误    </script></body></html>]]></content>
       
       
       
