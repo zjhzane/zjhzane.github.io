@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>应知应会</title>
+      <link href="/2024/11/14/%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/"/>
+      <url>/2024/11/14/%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/</url>
+      
+        <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/PPT.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>地点查询</title>
       <link href="/2024/10/31/%E5%9C%B0%E7%82%B9%E6%9F%A5%E8%AF%A2/"/>
       <url>/2024/10/31/%E5%9C%B0%E7%82%B9%E6%9F%A5%E8%AF%A2/</url>
@@ -36,11 +49,11 @@
     
     
     <entry>
-      <title>入库说明</title>
-      <link href="/2024/10/20/%E5%85%A5%E5%BA%93%E8%AF%B4%E6%98%8E/"/>
-      <url>/2024/10/20/%E5%85%A5%E5%BA%93%E8%AF%B4%E6%98%8E/</url>
+      <title>就业系统录入</title>
+      <link href="/2024/10/20/%E7%B3%BB%E7%BB%9F%E5%BD%95%E5%85%A5/"/>
+      <url>/2024/10/20/%E7%B3%BB%E7%BB%9F%E5%BD%95%E5%85%A5/</url>
       
-        <content type="html"><![CDATA[<h1 id="资产入库操作指南"><a href="#资产入库操作指南" class="headerlink" title="资产入库操作指南"></a>资产入库操作指南</h1><h2 id="1-确保网络连接"><a href="#1-确保网络连接" class="headerlink" title="1. 确保网络连接"></a>1. 确保网络连接</h2><p>保证能在万里学校环境里正常上网的情况下，建议使用 Google 浏览器。<br>在浏览器地址栏中输入：  <a href="http://zcgl.zwu.edu.cn/">http://zcgl.zwu.edu.cn/</a><br>输入教师工号和密码。</p><h2 id="2-进入系统"><a href="#2-进入系统" class="headerlink" title="2. 进入系统"></a>2. 进入系统</h2><p><img src="/images/image001.png"></p><ul><li>进入系统后，选择 <strong>资产新增</strong>。</li></ul><h2 id="3-资产入库-新建"><a href="#3-资产入库-新建" class="headerlink" title="3. 资产入库 - 新建"></a>3. 资产入库 - 新建</h2><p><img src="/images/image003.png"></p><ul><li>选择 <strong>资产入库</strong>，然后点击 <strong>新建</strong>。</li></ul><h2 id="4-导入资产"><a href="#4-导入资产" class="headerlink" title="4. 导入资产"></a>4. 导入资产</h2><p><img src="/images/image005.png"></p><ul><li>我们选用其中一种方法：<strong>导入资产</strong>（我已经准备好了导入模板，老师只需要检查一下不太确定的地方，修改后即可使用。文件是一个 Excel 表格）。<br><img src="/images/image006.png"></li><li>excel导入模板需要填写的主要是用户端信息，如教育分类号（对资产的编号，不同的资产可以在附件3教育分类号这个excel工作表附表中查找到，取得经办人，可以在申购单，合同上找到，使用人（验收单上可以找到相关信息），使用方向（可以在申购单上经费科目看出），存放地（可以在附表4钱湖存放地）查找到。<br><img src="/images/image007.png"></li><li>选择我们做好的 <strong>“资产入库导入模板”</strong> 文件。</li><li>导入后，系统会生成一个数据库。<br><img src="/images/image009.png"></li></ul><h2 id="5-入库单"><a href="#5-入库单" class="headerlink" title="5. 入库单"></a>5. 入库单</h2><p><img src="/images/image011.png"></p><ul><li>接下来，选择 <strong>入库单</strong>。</li><li><strong>红色字体为必填项</strong>，其中 <strong>合同编号</strong>（如果有就填写，如果没有就填写“无”）。<br><img src="/images/image013.png"></li></ul><h2 id="6-入库单文档-添加"><a href="#6-入库单文档-添加" class="headerlink" title="6. 入库单文档 - 添加"></a>6. 入库单文档 - 添加</h2><p><img src="/images/image016.png"></p><ul><li>进入 <strong>入库单文档</strong>，点击 <strong>添加</strong>。</li><li>通过点击 <strong>“？”</strong> 号可以了解要添加的内容。<br><img src="/images/image018.png"></li><li>我们已经为老师准备好了这些文件，只需要选择后添加进系统即可。<ul><li>如：1. 申购单，2. 执行书，3. xx 合同，小项目的文件都已经准备好。<br><img src="/images/image020.png"></li></ul></li><li>选择 <strong>发票图片</strong>。<br><img src="/images/image024.png"></li><li>添加 <strong>发票图片</strong> 文件。</li></ul><h2 id="7-保存并提交"><a href="#7-保存并提交" class="headerlink" title="7. 保存并提交"></a>7. 保存并提交</h2><p><img src="/images/image027.png"></p><ul><li>资料上传完成后，点击 <strong>保存</strong>（如果有问题可以修改或删除，检查完成后）。</li><li>点击 <strong>提交</strong>。<br><img src="/images/image029.png"></li><li>资产入库记录中将显示我们刚录入的数据条。</li><li>点击这条数据可以查看录入的详表，选择 <strong>查看入库进度</strong>。</li></ul><h2 id="8-资产管理员审核"><a href="#8-资产管理员审核" class="headerlink" title="8. 资产管理员审核"></a>8. 资产管理员审核</h2><p>下一步由学院的资产管理员进行审核。</p><ul><li>资产管理员会收到短信通知。</li><li>在学校网络环境中，打开浏览器，输入：<br><a href="http://zcgl.zwu.edu.cn/">http://zcgl.zwu.edu.cn/</a><br>输入教师工号和密码。</li></ul><h2 id="9-处理流程"><a href="#9-处理流程" class="headerlink" title="9. 处理流程"></a>9. 处理流程</h2><p><img src="/images/image040.jpg"></p><ul><li>进入系统，选择 <strong>事务处理</strong>，点击未处理的一条，打开。</li><li>在 <strong>处理说明</strong> 中填写 <strong>“同意”</strong>，然后点击 <strong>同意</strong>。<br><img src="/images/image045.png"></li><li>会弹出一个对话框：<ul><li>选择 <strong>采购经办人</strong>，即在申购单上签字的老师，如“汪佳”，选择对应的老师后点击 <strong>确定</strong>。<br><img src="/images/image048.jpg"></li></ul></li><li>选择 <strong>已处理</strong>，然后点击刚才的那一条进行处理。</li><li>可以点击 <strong>查看流程</strong> 查看详细信息。</li></ul><h2 id="10-后续流程"><a href="#10-后续流程" class="headerlink" title="10. 后续流程"></a>10. 后续流程</h2><p>后勤校建部的汪佳或于炜将会进行审核，之后王赛云和褚晗越将继续审核，最后资产入库完成。</p>]]></content>
+        <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/2022.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
       
       
       <categories>
@@ -61,11 +74,11 @@
     
     
     <entry>
-      <title>就业系统录入</title>
-      <link href="/2024/10/20/%E7%B3%BB%E7%BB%9F%E5%BD%95%E5%85%A5/"/>
-      <url>/2024/10/20/%E7%B3%BB%E7%BB%9F%E5%BD%95%E5%85%A5/</url>
+      <title>入库说明</title>
+      <link href="/2024/10/20/%E5%85%A5%E5%BA%93%E8%AF%B4%E6%98%8E/"/>
+      <url>/2024/10/20/%E5%85%A5%E5%BA%93%E8%AF%B4%E6%98%8E/</url>
       
-        <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/2022.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+        <content type="html"><![CDATA[<h1 id="资产入库操作指南"><a href="#资产入库操作指南" class="headerlink" title="资产入库操作指南"></a>资产入库操作指南</h1><h2 id="1-确保网络连接"><a href="#1-确保网络连接" class="headerlink" title="1. 确保网络连接"></a>1. 确保网络连接</h2><p>保证能在万里学校环境里正常上网的情况下，建议使用 Google 浏览器。<br>在浏览器地址栏中输入：  <a href="http://zcgl.zwu.edu.cn/">http://zcgl.zwu.edu.cn/</a><br>输入教师工号和密码。</p><h2 id="2-进入系统"><a href="#2-进入系统" class="headerlink" title="2. 进入系统"></a>2. 进入系统</h2><p><img src="/images/image001.png"></p><ul><li>进入系统后，选择 <strong>资产新增</strong>。</li></ul><h2 id="3-资产入库-新建"><a href="#3-资产入库-新建" class="headerlink" title="3. 资产入库 - 新建"></a>3. 资产入库 - 新建</h2><p><img src="/images/image003.png"></p><ul><li>选择 <strong>资产入库</strong>，然后点击 <strong>新建</strong>。</li></ul><h2 id="4-导入资产"><a href="#4-导入资产" class="headerlink" title="4. 导入资产"></a>4. 导入资产</h2><p><img src="/images/image005.png"></p><ul><li>我们选用其中一种方法：<strong>导入资产</strong>（我已经准备好了导入模板，老师只需要检查一下不太确定的地方，修改后即可使用。文件是一个 Excel 表格）。<br><img src="/images/image006.png"></li><li>excel导入模板需要填写的主要是用户端信息，如教育分类号（对资产的编号，不同的资产可以在附件3教育分类号这个excel工作表附表中查找到，取得经办人，可以在申购单，合同上找到，使用人（验收单上可以找到相关信息），使用方向（可以在申购单上经费科目看出），存放地（可以在附表4钱湖存放地）查找到。<br><img src="/images/image007.png"></li><li>选择我们做好的 <strong>“资产入库导入模板”</strong> 文件。</li><li>导入后，系统会生成一个数据库。<br><img src="/images/image009.png"></li></ul><h2 id="5-入库单"><a href="#5-入库单" class="headerlink" title="5. 入库单"></a>5. 入库单</h2><p><img src="/images/image011.png"></p><ul><li>接下来，选择 <strong>入库单</strong>。</li><li><strong>红色字体为必填项</strong>，其中 <strong>合同编号</strong>（如果有就填写，如果没有就填写“无”）。<br><img src="/images/image013.png"></li></ul><h2 id="6-入库单文档-添加"><a href="#6-入库单文档-添加" class="headerlink" title="6. 入库单文档 - 添加"></a>6. 入库单文档 - 添加</h2><p><img src="/images/image016.png"></p><ul><li>进入 <strong>入库单文档</strong>，点击 <strong>添加</strong>。</li><li>通过点击 <strong>“？”</strong> 号可以了解要添加的内容。<br><img src="/images/image018.png"></li><li>我们已经为老师准备好了这些文件，只需要选择后添加进系统即可。<ul><li>如：1. 申购单，2. 执行书，3. xx 合同，小项目的文件都已经准备好。<br><img src="/images/image020.png"></li></ul></li><li>选择 <strong>发票图片</strong>。<br><img src="/images/image024.png"></li><li>添加 <strong>发票图片</strong> 文件。</li></ul><h2 id="7-保存并提交"><a href="#7-保存并提交" class="headerlink" title="7. 保存并提交"></a>7. 保存并提交</h2><p><img src="/images/image027.png"></p><ul><li>资料上传完成后，点击 <strong>保存</strong>（如果有问题可以修改或删除，检查完成后）。</li><li>点击 <strong>提交</strong>。<br><img src="/images/image029.png"></li><li>资产入库记录中将显示我们刚录入的数据条。</li><li>点击这条数据可以查看录入的详表，选择 <strong>查看入库进度</strong>。</li></ul><h2 id="8-资产管理员审核"><a href="#8-资产管理员审核" class="headerlink" title="8. 资产管理员审核"></a>8. 资产管理员审核</h2><p>下一步由学院的资产管理员进行审核。</p><ul><li>资产管理员会收到短信通知。</li><li>在学校网络环境中，打开浏览器，输入：<br><a href="http://zcgl.zwu.edu.cn/">http://zcgl.zwu.edu.cn/</a><br>输入教师工号和密码。</li></ul><h2 id="9-处理流程"><a href="#9-处理流程" class="headerlink" title="9. 处理流程"></a>9. 处理流程</h2><p><img src="/images/image040.jpg"></p><ul><li>进入系统，选择 <strong>事务处理</strong>，点击未处理的一条，打开。</li><li>在 <strong>处理说明</strong> 中填写 <strong>“同意”</strong>，然后点击 <strong>同意</strong>。<br><img src="/images/image045.png"></li><li>会弹出一个对话框：<ul><li>选择 <strong>采购经办人</strong>，即在申购单上签字的老师，如“汪佳”，选择对应的老师后点击 <strong>确定</strong>。<br><img src="/images/image048.jpg"></li></ul></li><li>选择 <strong>已处理</strong>，然后点击刚才的那一条进行处理。</li><li>可以点击 <strong>查看流程</strong> 查看详细信息。</li></ul><h2 id="10-后续流程"><a href="#10-后续流程" class="headerlink" title="10. 后续流程"></a>10. 后续流程</h2><p>后勤校建部的汪佳或于炜将会进行审核，之后王赛云和褚晗越将继续审核，最后资产入库完成。</p>]]></content>
       
       
       <categories>
