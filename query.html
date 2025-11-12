@@ -55,12 +55,12 @@
   configTitle: 'Hexo',
   title: 'Hexo',
   postAI: '',
-  pageFillDescription: '档案邮寄地址查询系统档案邮寄地址查询系统档案邮寄地址查询系统省份请选择省份城市请先选择省份区县请先选择城市查询查询结果加载数据尝试多个可能的数据路径相对路径本地打开绝对路径或根路径相对路径当前目录相对路径上级目录尝试加载数据路径路径返回状态码数据加载成功路径省份数量省份列表路径加载失败所有数据路径都加载失败数据加载失败尝试的路径最后错误未知错误初始化省份下拉框默认选择浙江省浙江浙江触发事件以加载城市列表和数据初始化省份下拉框清空现有选项保留第一个提示选项请选择省份初始化省份列表共个省份省份列表已加载到下拉框省份改变时更新城市列表请选择城市请先选择城市未选择省份选择的省份数据条数该省份没有数据市市市找到城市个如果选择了省份自动加载该省份的所有数据城市改变时更新区县列表请选择区县未选择省份或城市市区县区县区县选择的城市找到区县个如果选择了城市自动查询区县改变时自动查询查询数据请选择省份查询中延迟一下显示结果让更流畅查询条件省份城市全部区县全部只选择了省份显示该省份所有数据查询结果显示省份所有数据共条选择了省份和城市显示该城市所有数据包括市级和所有区县数据市查询结果显示城市数据共条选择了省份城市和区县显示该区县的数据市区县查询结果显示区县数据共条显示查询结果显示结果数据条数未找到相关数据档案转寄单位名称档案转寄单位地址联系人档案投递电话邮政编码第一条数据示例档案转寄单位名称档案转寄单位地址联系人档案投递电话邮编结果已显示转义函数防止攻击页面加载时初始化',
+  pageFillDescription: '档案邮寄地址查询系统档案邮寄地址查询系统档案邮寄地址查询系统省份请选择省份城市请先选择省份区县请先选择城市查询查询结果加载数据尝试多个可能的数据路径相对路径本地打开绝对路径或根路径相对路径当前目录相对路径上级目录尝试加载数据路径路径返回状态码数据加载成功路径数据类型数组对象检查数据是否是数组错误数据是数组而不是对象数组长度数组前项数据格式错误期望对象但得到数组请检查文件格式省份数量省份列表第一个省份的数据示例无数据路径加载失败所有数据路径都加载失败数据加载失败尝试的路径最后错误未知错误初始化省份下拉框默认选择浙江省浙江浙江触发事件以加载城市列表和数据初始化省份下拉框清空现有选项保留第一个提示选项请选择省份初始化省份列表共个省份省份创建一个数组包含省份和显示名称从该省份的第一条数据中获取完整的省份名称检查数据格式省份没有数据省份的数据不是数组省份的数据数组为空省省省如果第一条数据没有省字段尝试从其他数据中查找省省如果都没有使用作为名称省份无法找到省份名称使用按省份名称排序省份列表处理后验证省份名称是否正常检查省份名称是否是纯数字警告省份名称是数字使用作为用于查询数据使用完整名称作为显示文本添加属性用于调试检测到异常的省份名称数字请检查数据格式警告检测到异常的省份名称请查看浏览器控制台获取详细信息省份列表已加载到下拉框共个选项验证下拉框中的选项下拉框中的选项选项省份改变时更新城市列表请选择城市请先选择城市未选择省份选择的省份数据条数该省份没有数据市市市找到城市个如果选择了省份自动加载该省份的所有数据城市改变时更新区县列表请选择区县未选择省份或城市市区县区县区县选择的城市找到区县个如果选择了城市自动查询区县改变时自动查询查询数据请选择省份查询中延迟一下显示结果让更流畅查询条件省份城市全部区县全部只选择了省份显示该省份所有数据查询结果显示省份所有数据共条选择了省份和城市显示该城市所有数据包括市级和所有区县数据市查询结果显示城市数据共条选择了省份城市和区县显示该区县的数据市区县查询结果显示区县数据共条显示查询结果显示结果数据条数未找到相关数据档案转寄单位名称档案转寄单位地址联系人档案投递电话邮政编码第一条数据示例档案转寄单位名称档案转寄单位地址联系人档案投递电话邮编结果已显示转义函数防止攻击页面加载时初始化',
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-11-12 13:26:08',
+  postUpdate: '2025-11-12 13:36:09',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -465,10 +465,24 @@ if (true) {
                         continue;
                     }
                     
-                    allData = await response.json();
+                    const data = await response.json();
                     console.log('数据加载成功！路径:', dataPath);
-                    console.log('省份数量:', Object.keys(allData).length);
-                    console.log('省份列表:', Object.keys(allData));
+                    console.log('数据类型:', typeof data, Array.isArray(data) ? '(数组)' : '(对象)');
+                    
+                    // 检查数据是否是数组
+                    if (Array.isArray(data)) {
+                        console.error('错误：数据是数组而不是对象！');
+                        console.log('数组长度:', data.length);
+                        console.log('数组前3项:', data.slice(0, 3));
+                        resultsDiv.innerHTML = '<div class="no-results">数据格式错误：期望对象，但得到数组<br>请检查data.json文件格式</div>';
+                        return;
+                    }
+                    
+                    allData = data;
+                    const provinceKeys = Object.keys(allData);
+                    console.log('省份数量:', provinceKeys.length);
+                    console.log('省份列表（keys）:', provinceKeys);
+                    console.log('第一个省份的数据示例:', allData[provinceKeys[0]] ? allData[provinceKeys[0]][0] : '无数据');
                     
                     loaded = true;
                     break;
@@ -503,17 +517,104 @@ if (true) {
             // 清空现有选项（保留第一个提示选项）
             provinceSelect.innerHTML = '<option value="">请选择省份</option>';
             
-            const provinces = Object.keys(allData).sort();
-            console.log('初始化省份列表，共', provinces.length, '个省份');
+            const provinceKeys = Object.keys(allData);
+            console.log('初始化省份列表，共', provinceKeys.length, '个省份');
+            console.log('省份keys:', provinceKeys);
             
+            // 创建一个数组，包含省份key和显示名称
+            const provinces = provinceKeys.map(key => {
+                // 从该省份的第一条数据中获取完整的省份名称
+                const provinceData = allData[key];
+                
+                // 检查数据格式
+                if (!provinceData) {
+                    console.warn('省份', key, '没有数据');
+                    return {
+                        key: key,
+                        name: key
+                    };
+                }
+                
+                if (!Array.isArray(provinceData)) {
+                    console.warn('省份', key, '的数据不是数组:', typeof provinceData);
+                    return {
+                        key: key,
+                        name: key
+                    };
+                }
+                
+                if (provinceData.length === 0) {
+                    console.warn('省份', key, '的数据数组为空');
+                    return {
+                        key: key,
+                        name: key
+                    };
+                }
+                
+                const firstItem = provinceData[0];
+                if (firstItem && firstItem.省 && typeof firstItem.省 === 'string') {
+                    return {
+                        key: key,
+                        name: firstItem.省
+                    };
+                }
+                
+                // 如果第一条数据没有"省"字段，尝试从其他数据中查找
+                for (let i = 0; i < Math.min(provinceData.length, 10); i++) {
+                    if (provinceData[i] && provinceData[i].省) {
+                        return {
+                            key: key,
+                            name: provinceData[i].省
+                        };
+                    }
+                }
+                
+                // 如果都没有，使用key作为名称
+                console.warn('省份', key, '无法找到省份名称，使用key:', key);
+                return {
+                    key: key,
+                    name: key
+                };
+            });
+            
+            // 按省份名称排序
+            provinces.sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+            
+            console.log('省份列表（处理后）:', provinces);
+            
+            // 验证省份名称是否正常
+            let hasInvalidNames = false;
             provinces.forEach(province => {
+                // 检查省份名称是否是纯数字
+                if (/^\d+$/.test(province.name)) {
+                    console.error('警告：省份名称是数字:', province.key, '->', province.name);
+                    hasInvalidNames = true;
+                }
+                
                 const option = document.createElement('option');
-                option.value = province;
-                option.textContent = province;
+                option.value = province.key;  // 使用key作为value，用于查询数据
+                option.textContent = province.name;  // 使用完整名称作为显示文本
+                
+                // 添加data属性用于调试
+                option.setAttribute('data-key', province.key);
+                option.setAttribute('data-name', province.name);
+                
                 provinceSelect.appendChild(option);
             });
             
-            console.log('省份列表已加载到下拉框');
+            if (hasInvalidNames) {
+                console.error('检测到异常的省份名称（数字）！请检查数据格式。');
+                resultsDiv.innerHTML = '<div class="no-results" style="color: red;">警告：检测到异常的省份名称，请查看浏览器控制台获取详细信息</div>';
+            }
+            
+            console.log('省份列表已加载到下拉框，共', provinces.length, '个选项');
+            
+            // 验证下拉框中的选项
+            const options = provinceSelect.querySelectorAll('option');
+            console.log('下拉框中的选项:');
+            options.forEach((opt, index) => {
+                console.log(`  选项${index}: value="${opt.value}", text="${opt.textContent}"`);
+            });
         }
 
         // 省份改变时，更新城市列表
