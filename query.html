@@ -55,12 +55,12 @@
   configTitle: 'Hexo',
   title: 'Hexo',
   postAI: '',
-  pageFillDescription: '档案邮寄地址查询系统档案邮寄地址查询系统档案邮寄地址查询系统省份请选择省份城市请先选择省份区县请先选择城市查询查询结果加载数据默认选择浙江省浙江加载数据失败数据加载失败请刷新页面重试初始化省份下拉框省份改变时更新城市列表请选择城市请先选择城市市市如果选择了省份自动加载该省份的所有数据城市改变时更新区县列表请选择区县市区县区县如果选择了城市自动查询区县改变时自动查询查询数据请选择省份查询中延迟一下显示结果让更流畅只选择了省份显示该省份所有数据选择了省份和城市显示该城市所有数据包括市级和所有区县数据市选择了省份城市和区县显示该区县的数据市区县显示查询结果未找到相关数据档案转寄单位名称档案转寄单位地址联系人档案投递电话邮政编码档案转寄单位名称档案转寄单位地址联系人档案投递电话邮编页面加载时初始化',
+  pageFillDescription: '档案邮寄地址查询系统档案邮寄地址查询系统档案邮寄地址查询系统省份请选择省份城市请先选择省份区县请先选择城市查询查询结果加载数据尝试多个可能的数据路径相对路径本地打开绝对路径或根路径相对路径当前目录相对路径上级目录尝试加载数据路径路径返回状态码数据加载成功路径省份数量省份列表路径加载失败所有数据路径都加载失败数据加载失败尝试的路径最后错误未知错误初始化省份下拉框默认选择浙江省浙江浙江触发事件以加载城市列表和数据初始化省份下拉框清空现有选项保留第一个提示选项请选择省份初始化省份列表共个省份省份列表已加载到下拉框省份改变时更新城市列表请选择城市请先选择城市未选择省份选择的省份数据条数该省份没有数据市市市找到城市个如果选择了省份自动加载该省份的所有数据城市改变时更新区县列表请选择区县未选择省份或城市市区县区县区县选择的城市找到区县个如果选择了城市自动查询区县改变时自动查询查询数据请选择省份查询中延迟一下显示结果让更流畅查询条件省份城市全部区县全部只选择了省份显示该省份所有数据查询结果显示省份所有数据共条选择了省份和城市显示该城市所有数据包括市级和所有区县数据市查询结果显示城市数据共条选择了省份城市和区县显示该区县的数据市区县查询结果显示区县数据共条显示查询结果显示结果数据条数未找到相关数据档案转寄单位名称档案转寄单位地址联系人档案投递电话邮政编码第一条数据示例档案转寄单位名称档案转寄单位地址联系人档案投递电话邮编结果已显示转义函数防止攻击页面加载时初始化',
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-11-12 13:19:29',
+  postUpdate: '2025-11-12 13:26:08',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -444,28 +444,76 @@ if (true) {
 
         // 加载JSON数据
         async function loadData() {
-            try {
-                const response = await fetch('data/data.json');
-                allData = await response.json();
-                initProvinces();
-                // 默认选择浙江省
+            // 尝试多个可能的数据路径
+            const possiblePaths = [
+                'data/data.json',           // 相对路径（本地打开）
+                '/data/data.json',          // 绝对路径（iframe或根路径）
+                './data/data.json',         // 相对路径（当前目录）
+                '../data/data.json'         // 相对路径（上级目录）
+            ];
+            
+            let loaded = false;
+            let lastError = null;
+            
+            for (const dataPath of possiblePaths) {
+                try {
+                    console.log('尝试加载数据路径:', dataPath);
+                    const response = await fetch(dataPath);
+                    
+                    if (!response.ok) {
+                        console.warn(`路径 ${dataPath} 返回状态码: ${response.status}`);
+                        continue;
+                    }
+                    
+                    allData = await response.json();
+                    console.log('数据加载成功！路径:', dataPath);
+                    console.log('省份数量:', Object.keys(allData).length);
+                    console.log('省份列表:', Object.keys(allData));
+                    
+                    loaded = true;
+                    break;
+                } catch (error) {
+                    console.warn(`路径 ${dataPath} 加载失败:`, error.message);
+                    lastError = error;
+                    continue;
+                }
+            }
+            
+            if (!loaded) {
+                console.error('所有数据路径都加载失败');
+                resultsDiv.innerHTML = '<div class="no-results">数据加载失败<br>尝试的路径: ' + possiblePaths.join(', ') + '<br>最后错误: ' + (lastError ? lastError.message : '未知错误') + '</div>';
+                return;
+            }
+            
+            // 初始化省份下拉框
+            initProvinces();
+            
+            // 默认选择浙江省
+            if (allData['浙江']) {
                 provinceSelect.value = '浙江';
-                provinceSelect.dispatchEvent(new Event('change'));
-            } catch (error) {
-                console.error('加载数据失败:', error);
-                resultsDiv.innerHTML = '<div class="no-results">数据加载失败，请刷新页面重试</div>';
+                // 触发change事件以加载城市列表和数据
+                setTimeout(() => {
+                    provinceSelect.dispatchEvent(new Event('change'));
+                }, 100);
             }
         }
 
         // 初始化省份下拉框
         function initProvinces() {
-            const provinces = Object.keys(allData);
+            // 清空现有选项（保留第一个提示选项）
+            provinceSelect.innerHTML = '<option value="">请选择省份</option>';
+            
+            const provinces = Object.keys(allData).sort();
+            console.log('初始化省份列表，共', provinces.length, '个省份');
+            
             provinces.forEach(province => {
                 const option = document.createElement('option');
                 option.value = province;
                 option.textContent = province;
                 provinceSelect.appendChild(option);
             });
+            
+            console.log('省份列表已加载到下拉框');
         }
 
         // 省份改变时，更新城市列表
@@ -475,18 +523,31 @@ if (true) {
             districtSelect.innerHTML = '<option value="">请先选择城市</option>';
             resultsDiv.innerHTML = '';
 
-            if (!province) return;
+            if (!province) {
+                console.log('未选择省份');
+                return;
+            }
 
             const provinceData = allData[province] || [];
+            console.log('选择的省份:', province, '，数据条数:', provinceData.length);
+            
+            if (provinceData.length === 0) {
+                console.warn('该省份没有数据');
+                return;
+            }
+
             const cities = new Set();
             
             provinceData.forEach(item => {
-                if (item.市) {
-                    cities.add(item.市);
+                if (item.市 && item.市.trim() !== '') {
+                    cities.add(item.市.trim());
                 }
             });
 
-            cities.forEach(city => {
+            const cityArray = Array.from(cities).sort();
+            console.log('找到城市:', cityArray.length, '个:', cityArray);
+
+            cityArray.forEach(city => {
                 const option = document.createElement('option');
                 option.value = city;
                 option.textContent = city;
@@ -508,18 +569,24 @@ if (true) {
             districtSelect.innerHTML = '<option value="">请选择区/县</option>';
             resultsDiv.innerHTML = '';
 
-            if (!province || !city) return;
+            if (!province || !city) {
+                console.log('未选择省份或城市');
+                return;
+            }
 
             const provinceData = allData[province] || [];
             const districts = new Set();
             
             provinceData.forEach(item => {
-                if (item.市 === city && item['区、县']) {
-                    districts.add(item['区、县']);
+                if (item.市 === city && item['区、县'] && item['区、县'].trim() !== '') {
+                    districts.add(item['区、县'].trim());
                 }
             });
 
-            districts.forEach(district => {
+            const districtArray = Array.from(districts).sort();
+            console.log('选择的城市:', city, '，找到区县:', districtArray.length, '个:', districtArray);
+
+            districtArray.forEach(district => {
                 const option = document.createElement('option');
                 option.value = district;
                 option.textContent = district;
@@ -528,7 +595,9 @@ if (true) {
 
             // 如果选择了城市，自动查询
             if (city) {
-                searchData();
+                setTimeout(() => {
+                    searchData();
+                }, 50);
             }
         });
 
@@ -557,17 +626,22 @@ if (true) {
                 const provinceData = allData[province] || [];
                 let filteredData = [];
 
+                console.log('查询条件 - 省份:', province, '城市:', city || '(全部)', '区县:', district || '(全部)');
+
                 if (!city) {
                     // 只选择了省份，显示该省份所有数据
                     filteredData = provinceData;
+                    console.log('查询结果: 显示省份所有数据，共', filteredData.length, '条');
                 } else if (city && !district) {
                     // 选择了省份和城市，显示该城市所有数据（包括市级和所有区县数据）
                     filteredData = provinceData.filter(item => item.市 === city);
+                    console.log('查询结果: 显示城市数据，共', filteredData.length, '条');
                 } else if (city && district) {
                     // 选择了省份、城市和区县，显示该区县的数据
                     filteredData = provinceData.filter(item => 
                         item.市 === city && item['区、县'] === district
                     );
+                    console.log('查询结果: 显示区县数据，共', filteredData.length, '条');
                 }
 
                 displayResults(filteredData);
@@ -576,6 +650,8 @@ if (true) {
 
         // 显示查询结果
         function displayResults(data) {
+            console.log('显示结果，数据条数:', data.length);
+            
             if (data.length === 0) {
                 resultsDiv.innerHTML = '<div class="no-results">未找到相关数据</div>';
                 return;
@@ -589,18 +665,29 @@ if (true) {
             html += '<th>邮政编码</th>';
             html += '</tr></thead><tbody>';
 
-            data.forEach(item => {
+            data.forEach((item, index) => {
+                if (index === 0) {
+                    console.log('第一条数据示例:', item);
+                }
                 html += '<tr>';
-                html += `<td>${item['档案转寄单位名称'] || ''}</td>`;
-                html += `<td>${item['档案转寄单位地址'] || ''}</td>`;
-                html += `<td>${item['联系人'] || ''}</td>`;
-                html += `<td>${item['档案投递电话'] || ''}</td>`;
-                html += `<td>${item['邮编'] || ''}</td>`;
+                html += `<td>${escapeHtml(item['档案转寄单位名称'] || '')}</td>`;
+                html += `<td>${escapeHtml(item['档案转寄单位地址'] || '')}</td>`;
+                html += `<td>${escapeHtml(item['联系人'] || '')}</td>`;
+                html += `<td>${escapeHtml(item['档案投递电话'] || '')}</td>`;
+                html += `<td>${escapeHtml(item['邮编'] || '')}</td>`;
                 html += '</tr>';
             });
 
             html += '</tbody></table>';
             resultsDiv.innerHTML = html;
+            console.log('结果已显示');
+        }
+
+        // HTML转义函数，防止XSS攻击
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         // 页面加载时初始化
